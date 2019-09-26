@@ -23,9 +23,9 @@ Route::get('/forum', [
 ])->name('forum');
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // search
 Route::get('/search', 'DiscussionsController@search');
@@ -41,10 +41,10 @@ Route::get('discussion/{slug}', [
 ]);
 
 // Show discussion on particular under discussions
-Route::get('channel/{slug}', [
-    'uses' => 'ForumsController@channel',
-    'as' => 'channel'
-]);
+// Route::get('channel/{slug}', [
+//     'uses' => 'ForumsController@channel',
+//     'as' => 'channel'
+// ]);
 
 
 
@@ -64,10 +64,10 @@ Route::group(['middleware' => 'auth'], function(){
 	])->middleware('verified');
 
 	// discussion store
-	Route::post('discussions/store',[
-		'uses' => 'DiscussionsController@store',
-		'as' => 'discussions.store'
-    ]);
+// 	Route::post('discussions/store',[
+// 		'uses' => 'DiscussionsController@store',
+// 		'as' => 'discussions.store'
+//     ]);
     
     // Comment section
     Route::post('/discussion/reply/{id}', [
@@ -82,10 +82,10 @@ Route::group(['middleware' => 'auth'], function(){
     ])->middleware('verified');
     
     // unlike post
-    Route::get('/reply/unlike/{id}', [
-        'uses' => 'RepliesController@unlike',
-        'as' => 'reply.unlike'
-    ]);
+//     Route::get('/reply/unlike/{id}', [
+//         'uses' => 'RepliesController@unlike',
+//         'as' => 'reply.unlike'
+//     ]);
 
     //Follow or Unfollow discussion
     Route::get('/discussion/watch/{id}', [
@@ -99,11 +99,11 @@ Route::group(['middleware' => 'auth'], function(){
     ]);
 
     // mark the best answer
-    Route::get('/discussion/best/reply/{id}', [
+//     Route::get('/discussion/best/reply/{id}', [
 
-    	'uses' => 'RepliesController@best_answer',
-    	'as' => 'discussion.best.answer'
-    ]);
+//     	'uses' => 'RepliesController@best_answer',
+//     	'as' => 'discussion.best.answer'
+//     ]);
 
     // Edit and update discussion
     Route::get('/discussions/edit/{slug}', [
@@ -117,10 +117,10 @@ Route::group(['middleware' => 'auth'], function(){
     ]);
 
     // edit and update reply
-    Route::get('/reply/edit/{id}', [
-        'uses' => 'RepliesController@edit',
-        'as' => 'reply.edit'
-    ]);
+//     Route::get('/reply/edit/{id}', [
+//         'uses' => 'RepliesController@edit',
+//         'as' => 'reply.edit'
+//     ]);
 
     Route::post('/reply/update/{id}', [
         'uses' => 'RepliesController@update',
